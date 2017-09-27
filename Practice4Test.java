@@ -1,4 +1,3 @@
-
 public class Practice4Test {
 	
 	protected Queue queue;
@@ -25,10 +24,14 @@ public class Practice4Test {
 	
 	
 	public boolean isPalindrome(String item) {
-		clearData();
+		clearData();	
+		item = item.toLowerCase();
+	
 		for (int i = 0; i < item.length(); i++) {
-			stack.push(item.substring(i, i+1));
-			queue.enqueue(item.substring(i, i+1));
+			if(item.charAt(i) >= 'a' && item.charAt(i) <= 'z') {
+				stack.push(item.charAt(i));
+				queue.enqueue(item.charAt(i));
+			}
 		}
 
 		while (! stack.empty() && ! queue.empty()) {
